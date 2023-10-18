@@ -14,11 +14,11 @@ int Dice() {
 }
 
 void DiceResult(int diceNumber) {
-	//偶数のとき
+	//偶数
 	if (diceNumber % 2 == 0) {
 		printf("結果　丁\n");
 	}
-	// 奇数のとき
+	// 奇数
 	if (diceNumber % 2 == 1) {
 		printf("結果　半\n");
 	}
@@ -39,7 +39,7 @@ int main() {
 
 	while (true) {
 
-		printf("1:半(奇数)　2:丁(偶数)　0:終了\n");
+		printf("1:半(奇数)　2:丁(偶数)\n");
 		std::cin >> Answer;
 		if (Answer == 0) {
 			break;
