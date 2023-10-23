@@ -39,7 +39,7 @@ int main() {
 
 	while (true) {
 
-		printf("1:半(奇数)　2:丁(偶数)\n");
+		printf("1:半　2:丁\n");
 		std::cin >> Answer;
 		if (Answer == 0) {
 			break;
