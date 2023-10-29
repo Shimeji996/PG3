@@ -1,20 +1,20 @@
 ﻿#include <stdio.h>
 
-int TypicallyCalc(int time) {
+int CalcTypically(int time) {
 	return 1072 * time;
 }
 
-int RecursiveCalc(int time, int HourlyWage = 100) {
+int CalcRecursive(int time, int Hourly = 100) {
 	if (time == 1) {
-		return HourlyWage;
+		return Hourly;
 	}
-	return (RecursiveCalc(time - 1, HourlyWage * 2 - 50));
+	return (CalcRecursive(time - 1, Hourly * 2 - 50));
 }
 
 void Comparison(int time) {
 
-	int Typically = TypicallyCalc(time);
-	int Recursive = RecursiveCalc(time);
+	int Typically = CalcTypically(time);
+	int Recursive = CalcRecursive(time);
 
 	printf("一般的な賃金 : %d\n", Typically);
 	printf("再帰的な賃金 : %d\n", Recursive);
@@ -33,6 +33,7 @@ void Comparison(int time) {
 }
 
 int main() {
+
 	Comparison(9);
 
 	return 0;
