@@ -9,11 +9,11 @@ std::mt19937 mtrand(seed_Gen());
 
 typedef int (*Pfunc)();
 
-int Dice() {
+int RollingDice() {
 	return std::uniform_int_distribution<int>(1, 6)(seed_Gen);
 }
 
-void DiceResult(int diceNumber) {
+void DispResult(int diceNumber) {
 	//偶数
 	if (diceNumber % 2 == 0) {
 		printf("結果　丁\n");
@@ -33,7 +33,7 @@ int WaitingTime(Pfunc returnValue, int second) {
 int main() {
 
 	Pfunc p;
-	p = Dice;
+	p = RollingDice;
 	int Result;
 	int Answer;
 
@@ -41,20 +41,25 @@ int main() {
 
 		printf("1:半　2:丁\n");
 		std::cin >> Answer;
+
 		if (Answer == 0) {
 			break;
 		}
+
 		Result = WaitingTime(p, 3);
 		printf("答え : %d\n", Result);
-		DiceResult(Result);
+		DispResult(Result);
+
 		if (Result % 2 == 0 && Answer == 2) {
-			printf("勝ち\n");
+			printf("正解\n");
 		}
+
 		else if (Result % 2 == 1 && Answer == 1) {
-			printf("勝ち\n");
+			printf("正解\n");
 		}
+
 		else {
-			printf("負け\n");
+			printf("不正解\n");
 		}
 
 	}
