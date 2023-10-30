@@ -24,9 +24,9 @@ void DiceResult(int diceNumber) {
 	}
 }
 
-int SetTimeOut(Pfunc collback, int second) {
+int SetTimeOut(Pfunc returnValue, int second) {
 	std::this_thread::sleep_for(std::chrono::seconds(second));
-	return collback();
+	return returnValue();
 
 }
 
