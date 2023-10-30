@@ -8,7 +8,7 @@ int CalcRecursive(int time, int Hourly = 100) {
 	if (time == 1) {
 		return Hourly;
 	}
-	return (CalcRecursive(time - 1, Hourly * 2 - 50));
+	return Hourly + (CalcRecursive(time - 1, Hourly * 2 - 50));
 }
 
 void Comparison(int time) {
@@ -34,7 +34,7 @@ void Comparison(int time) {
 
 int main() {
 
-	Comparison(9);
+	Comparison(8);
 
 	return 0;
 }
