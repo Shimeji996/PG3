@@ -24,7 +24,7 @@ void DiceResult(int diceNumber) {
 	}
 }
 
-int SetTimeOut(Pfunc returnValue, int second) {
+int WaitingTime(Pfunc returnValue, int second) {
 	std::this_thread::sleep_for(std::chrono::seconds(second));
 	return returnValue();
 
@@ -44,7 +44,7 @@ int main() {
 		if (Answer == 0) {
 			break;
 		}
-		Result = SetTimeOut(p, 3);
+		Result = WaitingTime(p, 3);
 		printf("答え : %d\n", Result);
 		DiceResult(Result);
 		if (Result % 2 == 0 && Answer == 2) {
