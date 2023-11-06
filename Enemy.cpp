@@ -10,17 +10,17 @@ void Enemy::Update() {
 }
 
 void Enemy::Approach() {
-	printf("Ú‹ß\n");
+	printf("æ¥è¿‘\n");
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 }
 
 void Enemy::Shot() {
-	printf("ËŒ‚\n");
+	printf("å°„æ’ƒ\n");
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 }
 
 void Enemy::Leave() {
-	printf("—£’E\n");
+	printf("é›¢è„±\n");
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 }
 
