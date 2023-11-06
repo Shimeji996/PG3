@@ -1,9 +1,8 @@
-﻿#include "Enemy.h"
+﻿#include <stdio.h>
 
 int main() {
-	Enemy* enemy = new Enemy();
-
-	enemy->Update();
+	
+	printf("こんにちは");
 
 	return 0;
 }
