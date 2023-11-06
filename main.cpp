@@ -1,9 +1,14 @@
-﻿#include "Class.h"
-#include <stdio.h>
+﻿#include "Ant.h"
+#include "Elephant.h"
+#include "Base.h"
 
 int main() {
-	Pair<int, float> IntAndInt(10, 11.0f);
-	printf("%f", IntAndInt.Min());
+	Base* Charactor[2];
+	Charactor[0] = new Ant();
+	Charactor[1] = new Elephant();
+
+	Charactor[0]->Size();
+	Charactor[1]->Size();
 
 	return 0;
 }
