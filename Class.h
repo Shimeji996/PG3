@@ -1,17 +1,20 @@
 #pragma once
+template <typename Type1, typename Type2>
 
-template <class Type1, class Type2, class Type3 = Type1>
-class Pair
+class Pair 
 {
 public:
-	Pair(Type1 a, Type2 b) : a(a), b(b) {}
 
-	Type3 Min() {
-		return a < b ? static_cast<Type3>(a) : static_cast<Type3>(b)
+	Pair(Type1 type1, Type2 type2) : num1(type1), num2(type2) {}
+
+	template<typename Type>
+	Type Min() 
+	{
+		Type type1 = static_cast<Type>(num1);
+		Type type2 = static_cast<Type>(num2);
+		return type1 < type2 ? type1 : type2;
 	}
 
-
-private:
-	Type1 a;
-	Type2 b;
+	Type1 num1;
+	Type2 num2;
 };
