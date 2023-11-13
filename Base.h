@@ -1,6 +1,6 @@
 #pragma once
 
-class Base
+class IShape
 {
 public:
 	virtual void size() = 0;

@@ -3,8 +3,8 @@
 
 int main(void) {
 
-	Base* rectangle;
-	Base* circle;
+	IShape* rectangle;
+	IShape* circle;
 
 	rectangle = new Rectangle(2.0f);
 	circle = new Circle(2.0f);

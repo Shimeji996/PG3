@@ -3,7 +3,7 @@
 #include "Base.h"
 #include <stdio.h>
 
-class Rectangle : public Base
+class Rectangle : public IShape
 {
 public:
 

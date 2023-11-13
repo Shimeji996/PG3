@@ -2,7 +2,7 @@
 #include "Base.h"
 #include <stdio.h>
 
-class Circle : public Base
+class Circle : public IShape
 {
 public:
 
