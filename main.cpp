@@ -1,9 +1,9 @@
-﻿#include "Ant.h"
+#include "Ant.h"
 #include "Elephant.h"
-#include "Base.h"
+#include "Creature.h"
 
 int main() {
-	Base* Charactor[2];
+	Creature* Charactor[2];
 	Charactor[0] = new Ant();
 	Charactor[1] = new Elephant();
 

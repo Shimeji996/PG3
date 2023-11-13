@@ -4,5 +4,5 @@ Elephant::Elephant() {}
 Elephant::~Elephant() {}
 void Elephant::Size()
 {
-	printf("�ۂ͑傫��\n");
+	printf("象は大きい\n");
 }

@@ -5,5 +5,5 @@ Ant::~Ant() {}
 
 void Ant::Size()
 {
-	printf("‹a‚Í¬‚³‚¢\n");
+	printf("èŸ»ã¯å°ã•ã„\n");
 }

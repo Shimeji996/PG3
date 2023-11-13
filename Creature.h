@@ -1,5 +1,5 @@
 #pragma once
-class Base
+class Creature
 {
 public:
 	virtual void Size() = 0;
