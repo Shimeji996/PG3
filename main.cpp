@@ -19,7 +19,7 @@ void DispResult(int diceNumber) {
 	}
 }
 
-int WaitingTime(std::function<int()> returnValue, int second) {
+int SetTimeout(std::function<int()> returnValue, int second) {
 	std::this_thread::sleep_for(std::chrono::seconds(second));
 	return returnValue();
 
@@ -40,7 +40,7 @@ int main() {
 			break;
 		}
 
-		Result = WaitingTime(p, 3);
+		Result = SetTimeout(p, 3);
 		printf("答え : %d\n", Result);
 		DispResult(Result);
 
