@@ -1,4 +1,4 @@
-﻿#include "Enemy.h"
+#include "Enemy.h"
 
 int main() {
 	Enemy* enemy = new Enemy();
