@@ -42,7 +42,7 @@ int main() {
 
 		Result = SetTimeout(p, 3);
 		printf("答え : %d\n", Result);
-		DispResult(Result);
+		DiceResult(Result);
 
 		if (Result % 2 == 0 && Answer == 2) {
 			printf("正解\n");
