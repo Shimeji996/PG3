@@ -13,7 +13,7 @@ int RollingDice() {
 	return std::uniform_int_distribution<int>(1, 6)(seed_Gen);
 }
 
-void DispResult(int diceNumber) {
+void DiceResult(int diceNumber) {
 	//偶数
 	if (diceNumber % 2 == 0) {
 		printf("結果　丁\n");
@@ -48,7 +48,7 @@ int main() {
 
 		Result = WaitingTime(p, 3);
 		printf("答え : %d\n", Result);
-		DispResult(Result);
+		DiceResult(Result);
 
 		if (Result % 2 == 0 && Answer == 2) {
 			printf("正解\n");
