@@ -8,7 +8,7 @@
 std::random_device seed_Gen;
 std::mt19937 mtrand(seed_Gen());
 
-void DispResult(int diceNumber) {
+void DiceResult(int diceNumber) {
 	//偶数
 	if (diceNumber % 2 == 0) {
 		printf("結果　丁\n");
