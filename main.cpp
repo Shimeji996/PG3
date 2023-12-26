@@ -1,28 +1,57 @@
 ﻿#include <stdio.h>
+#include <iostream>
+#include <windows.h>
+#include <list>
 
-template <typename Type>
+int main() {
+	std::list<const char*> YamanoteLine = {
+	"Tokyo","Kanda","Akihabara",
+	"Okachimachi","Ueno","Uguisudani",
+	"Nippori","Tabata","Komagome",
+	"Sugamo","Otsuka","Ikebukuro",
+	"Mejiro","Takadanobaba","Shin-Okubo",
+	"Shinjuku","Yoyogi","Harajuku",
+	"Shibuya","Ebisu","Meguro",
+	"Gotanda","Osaki","Shinagawa",
+	"Tamachi","Hamatsucho","Shimbashi","Yurakucho" 
+	};
+	
+	printf("1970\n");
 
-Type Min(Type a, Type b) {
-    if (a < b) {
-        return a;
-    }
-    else if (b < a) {
-        return b;
-    }
-}
+	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
+		printf(*itr);
+		printf(",");
+	}
 
-template<>
-char Min<char>(char a, char b) {
-    printf("数字以外は代入できません\n");
-    return 0;
-}
+	printf("\n");
+	printf("\n2019\n");
 
-int main(void) {
+	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
+		if (*itr == "Tabata") {
+			itr = YamanoteLine.insert(itr, "Nishi-Nippori");
+			break;
+		}
+	}
 
-    printf("%d\n", Min<int>(114, 5));
-    printf("%f\n", Min<float>(113.5f, 5.0f));
-    printf("%lf\n",Min<double>(111, 5));
-    Min<char>('a', 'b');
+	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
+		printf(*itr);
+		printf(",");
+	}
 
-    return 0;
+	printf("\n");
+	printf("\n2022\n");
+
+	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
+		if (*itr == "Tamachi") {
+			itr = YamanoteLine.insert(itr, "Takanawa-Gateway");
+			break;
+		}
+	}
+
+	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
+		printf(*itr);
+		printf(",");
+	}
+
+	return 0;
 }
