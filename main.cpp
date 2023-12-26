@@ -1,56 +1,47 @@
 ﻿#include <stdio.h>
+#include <Windows.h>
+#include <algorithm>
+#include <cassert>
+#include <fstream>
 #include <iostream>
-#include <windows.h>
+#include <sstream>
 #include <list>
 
+struct StudentNumber {
+	std::string name;
+	std::string number;
+	std::string studentNumber;
+};
+
 int main() {
-	std::list<const char*> YamanoteLine = {
-	"Tokyo","Kanda","Akihabara",
-	"Okachimachi","Ueno","Uguisudani",
-	"Nippori","Tabata","Komagome",
-	"Sugamo","Otsuka","Ikebukuro",
-	"Mejiro","Takadanobaba","Shin-Okubo",
-	"Shinjuku","Yoyogi","Harajuku",
-	"Shibuya","Ebisu","Meguro",
-	"Gotanda","Osaki","Shinagawa",
-	"Tamachi","Hamatsucho","Shimbashi","Yurakucho" 
-	};
-	
-	printf("1970\n");
+	std::list<StudentNumber> studentNumbers;
+	std::ifstream inputFile("PG3_05_02.txt");
+	assert(inputFile.is_open());
 
-	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
-		printf(*itr);
-		printf(",");
-	}
-
-	printf("\n");
-	printf("\n2019\n");
-
-	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
-		if (*itr == "Tabata") {
-			itr = YamanoteLine.insert(itr, "Nishi-Nippori");
-			break;
+	std::string line;
+	while (getline(inputFile, line)) {
+		std::istringstream lineStream(line);
+		std::string account;
+		while (getline(lineStream, account, ',')) {
+			StudentNumber StudentNumber{};
+			StudentNumber.name = account;
+			std::string number = account.substr(2, 3);
+			std::string studentNumber = account.substr(6, 4);
+			StudentNumber.number = number.c_str();
+			StudentNumber.studentNumber = studentNumber.c_str();
+			studentNumbers.emplace_back(StudentNumber);
 		}
 	}
 
-	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
-		printf(*itr);
-		printf(",");
-	}
+	inputFile.close();
 
-	printf("\n");
-	printf("\n2022\n");
-
-	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
-		if (*itr == "Tamachi") {
-			itr = YamanoteLine.insert(itr, "Takanawa-Gateway");
-			break;
+	studentNumbers.sort([](const StudentNumber& a, const StudentNumber& b) {
+		return  std::atoi((a.number + a.studentNumber).c_str()) < std::atoi((b.number + b.studentNumber).c_str());
 		}
-	}
+	);
 
-	for (std::list<const char*>::iterator itr = YamanoteLine.begin(); itr != YamanoteLine.end(); itr++) {
-		printf(*itr);
-		printf(",");
+	for (auto& accountName : studentNumbers) {
+		std::cout << accountName.name << std::endl;
 	}
 
 	return 0;
