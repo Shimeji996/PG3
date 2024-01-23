@@ -1,48 +1,30 @@
 ﻿#include <stdio.h>
-#include <Windows.h>
-#include <algorithm>
-#include <cassert>
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <list>
+#include <thread>
 
-struct StudentNumber {
-	std::string name;
-	std::string number;
-	std::string studentNumber;
-};
+void Thread1(int num) {
+	num += 0;
+	printf("thread %d\n", num);
+}
+
+void Thread2(int num) {
+	num += 1;
+	printf("thread %d\n", num);
+}
+
+void Thread3(int num) {
+	num += 2;
+	printf("thread %d\n", num);
+}
 
 int main() {
-	std::list<StudentNumber> studentNumbers;
-	std::ifstream inputFile("PG3_05_02.txt");
-	assert(inputFile.is_open());
+	int num = 1;
 
-	std::string line;
-	while (getline(inputFile, line)) {
-		std::istringstream lineStream(line);
-		std::string account;
-		while (getline(lineStream, account, ',')) {
-			StudentNumber StudentNumber{};
-			StudentNumber.name = account;
-			std::string number = account.substr(2, 3);
-			std::string studentNumber = account.substr(6, 4);
-			StudentNumber.number = number.c_str();
-			StudentNumber.studentNumber = studentNumber.c_str();
-			studentNumbers.emplace_back(StudentNumber);
-		}
-	}
-
-	inputFile.close();
-
-	studentNumbers.sort([](const StudentNumber& a, const StudentNumber& b) {
-		return  std::atoi((a.number + a.studentNumber).c_str()) < std::atoi((b.number + b.studentNumber).c_str());
-		}
-	);
-
-	for (auto& accountName : studentNumbers) {
-		std::cout << accountName.name << std::endl;
-	}
+	std::thread th1(Thread1, num);
+	th1.join();
+	std::thread th2(Thread2, num);
+	th2.join();
+	std::thread th3(Thread3, num);
+	th3.join();
 
 	return 0;
 }
