@@ -1,30 +1,23 @@
 ﻿#include <stdio.h>
+#include <iostream>
 #include <thread>
 
-void Thread1(int num) {
-	num += 0;
-	printf("thread %d\n", num);
-}
-
-void Thread2(int num) {
-	num += 1;
-	printf("thread %d\n", num);
-}
-
-void Thread3(int num) {
-	num += 2;
-	printf("thread %d\n", num);
-}
-
 int main() {
-	int num = 1;
 
-	std::thread th1(Thread1, num);
-	th1.join();
-	std::thread th2(Thread2, num);
-	th2.join();
-	std::thread th3(Thread3, num);
-	th3.join();
+	std::string a(100000, 'a');
+
+	auto CountStart = std::chrono::system_clock::now();
+	std::string copy = a;
+	auto CountStop = std::chrono::system_clock::now();
+	std::chrono::duration<double, std::micro>Copy = CountStop - CountStart;
+
+	auto MoveStart = std::chrono::system_clock::now();
+	std::string move = std::move(a);
+	auto MoveStop = std::chrono::system_clock::now();
+	std::chrono::duration<double, std::micro>Move = MoveStop - MoveStart;
+
+	std::cout << Copy.count() << "μs" << std::endl;
+	std::cout << Move.count() << "μs" << std::endl;
 
 	return 0;
 }
