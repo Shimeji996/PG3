@@ -1,5 +1,5 @@
 #pragma once
-#include "Base.h"
+#include "IShape.h"
 #include <stdio.h>
 
 class Circle : public IShape
