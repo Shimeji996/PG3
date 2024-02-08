@@ -1,10 +1,10 @@
 #pragma once
+#include <stdio.h>
 
-class IShape
-{
+class IShape {
 public:
-	virtual void size() = 0;
+	virtual void size(float value1, float value2) = 0;
 	virtual void draw() = 0;
-private:
-
+protected:
+	float area;
 };

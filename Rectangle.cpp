@@ -1,9 +1,13 @@
 #include "Rectangle.h"
 
-void Rectangle::size() {
-	area = (radius * 2) * (radius * 2);
+Rectangle::Rectangle() {
+
+}
+
+void Rectangle::size(float vertical, float beside) {
+	area = vertical * beside;
 }
 
 void Rectangle::draw() {
-	printf("’ZŒ`‚Ì–ÊÏ‚Í%f\n", area);
+	printf("‹éŒ`‚Ì–ÊÏ‚Í%f\n", area);
 }
